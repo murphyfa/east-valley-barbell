@@ -1,0 +1,14 @@
+.panelheader {
+  background-color:#222222 !important;
+  border-color:#222222 !important;
+}
+
+.panelborder {
+  border-color: #222222 !important;
+}
+
+@media (min-width: 768px) {
+  .memberpanel {
+    min-height: 400px;
+  }
+}

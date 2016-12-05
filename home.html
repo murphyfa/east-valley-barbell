@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>East Valley Barbell</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/home.css">
+
+  </head>
+  <body>
+    <div id="paraBG"></div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="homeLink" class="navbar-left"><a href="home.html">East Valley Barbell</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="facility.html">The Gym</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li id="contactLink"><a href="contact.html">Contact Us</a></li>
+                    <li id="phoneLink" class="navbar-right"><a href="tel:6783829474">678.382.9474</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" id="infoJumbotron">
+      <div class="container">
+        <div class="row vertical-center">
+          <div class="col-sm-6" id="infoLogoImg">
+            <img id="logo" src="images/EVBB_logo.png"></img>
+          </div>
+          <div class="col-sm-6">
+            <h1>EAST VALLEY BARBELL</h1>
+            <div id="infoAddress"><p>1175 S ARIZONA AVE<br>CHANDLER, AZ 85286</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron" style="background-color:white">
+      <div class="container">
+        <div class="row vertical-center">
+          <div class="col-sm-6">
+            <img src="images/plgym.jpg" style="width:100%">
+          </div>
+          <div class="col-sm-6 mobilecenter">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu vulputate erat. Praesent id nunc tincidunt, malesuada nibh nec, molestie quam. Phasellus elementum, tellus quis ultrices maximus, purus nibh pellentesque enim, malesuada lacinia massa felis id arcu. Morbi gravida feugiat dolor, eget accumsan libero lacinia in. Sed magna nunc, lobortis in rhoncus ac, luctus in tortor. Curabitur vel elit eu nisl maximus gravida quis non sapien. Sed at lobortis nulla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- This is the footer -->
+        <div class="thefooter">
+          <div class="container">
+            <div class="row">
+              <div id="map" class="col-sm-5 col-sm-offset-1 nogutter"></div>
+              <div class="col-sm-2 xsalign" style="text-align:center">
+                <h3 style="color:white">Address:</h3>
+                <h4 style="color:#d9d9d9">1175 S Arizona Ave<br>Chandler, AZ 85286</h4>
+              </div>
+              <div class="col-sm-3 xsalign" style="text-align:center">
+                <h3 style="color:white">Hours:<br>
+                <small style="color:#d9d9d9">Monday: 5:00am - 10:00pm<br>
+                  Tuesday: 5:00am - 10:00pm<br>
+                  Wednesday: 5:00am - 10:00pm<br>
+                  Thursday: 5:00am - 10:00pm<br>
+                  Friday: 5:00am - 10:00pm<br>
+                  Saturday: 10:00am - 10:00pm<br>
+                  Sunday: 10:00am - 6:00pm<br></small></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    function parallax(){
+      var jumboHeight = $('#infoJumbotron').outerHeight();
+      var scrolled = $(window).scrollTop();
+      $('#paraBG').css('height', (jumboHeight-scrolled+100) + 'px');
+    }
+
+    $(document).ready(function() {
+      parallax();
+    });
+
+    $(window).scroll(function(e){
+      parallax();
+    });
+
+    function myMap() {
+      var mapCanvas = document.getElementById("map");
+      var mapCenter = new google.maps.LatLng(33.2891775, -111.8402249);
+      var mapOptions = {
+          center: mapCenter,
+          zoom: 10
+      };
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+      var marker = new google.maps.Marker({position: mapCenter});
+      var popup = new google.maps.InfoWindow({
+        content: "EAST VALLEY BARBELL 1175 S Arizona Ave, Chandler, AZ 85286"
+      });
+      popup.open(map,marker);
+      marker.setMap(map);
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+
+  </body>
+</html>
